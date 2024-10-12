@@ -17,8 +17,8 @@
 
     <div class="main">
 
-        <button>Levels</button>
-        <button onclick="window.location.href='Settings-Page/index.html';">
+        <button id="Levels-btn">Levels</button>
+        <button id="Settings-btn" onclick="window.location.href='Settings-Page/index.html';">
             Settings
         </button>
         
@@ -26,10 +26,20 @@
     </div>
     
     <audio autoplay loop id="background-audio" src="Laufey - From The Start (Official Audio) [ ezmp3.cc ].mp3" style="display: none;"></audio>
+    
     <script>
-        window.onload = function(){
-            playAudio();
-        };
+        document.addEventListener('click', function(event){
+            console.log('Clicked Element:', event.target);
+            const Levelsbtn = document.getElementById('Levels-btn');
+            const Settingsbtn = document.getElementById('Settings-btn');
+
+            if(event.target === Levelsbtn || event.target == Settingsbtn){
+                console.log(event.target);
+                // No Action needed
+            } else{
+                playAudio();
+            }
+        });
     </script>
  
 
