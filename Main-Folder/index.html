@@ -8,6 +8,8 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500&display=swap');
     </style>
+    <script src="theme.js" defer></script>
+    <script src="audio.js" defer></script>
 </head>
 <body>
 
@@ -22,6 +24,13 @@
         
 
     </div>
+    
+    <audio autoplay loop id="background-audio" src="Laufey - From The Start (Official Audio) [ ezmp3.cc ].mp3" style="display: none;"></audio>
+    <script>
+        window.onload = function(){
+            playAudio();
+        };
+    </script>
  
 
 

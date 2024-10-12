@@ -8,6 +8,8 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500&display=swap');
     </style>
+    <script src="../theme.js" defer></script>
+    <script src="../audio.js" defer></script>
 </head>
 <body>
 
@@ -20,18 +22,17 @@
 
             <div class="audio-settings-gui">
                 <h3>Audio</h3>
-                <button>Music On</button>
-                <button>Music Off</button>
+                <button id="play-audio">Music On</button>
+                <button id="stop-audio">Music Off</button>
             </div>
 
             <div class="visuals-settings-gui">
                 <h3>Visuals</h3>
-                <button>Low GFX</button>
-                <button>High GFX</button>
+                <button id="light-mode-btn">Light Mode</button>
+                <button id="dark-mode-btn">Dark Mode</button>
             </div>
 
             <div class="progress-settings-gui">
-                <h3>Progress</h3>
                 <h3>Your Progress</h3>
                 <p>_%</p>
             </div>
@@ -42,6 +43,11 @@
             Back
         </button>
     </div>
-    
+
+    <audio autoplay loop id="background-audio" src="../Laufey - From The Start (Official Audio) [ ezmp3.cc ].mp3" style="display: none;"></audio>
+
+
+
+    <script src="script.js" defer></script>
 </body>
 </html>

@@ -4,6 +4,10 @@ body{
     font-style: normal;
     background: linear-gradient(to right, #242526, #878788 );
 }
+body.light-mode{
+    background: linear-gradient(to right, #ffffff, #908e8e);
+}
+
 h1{
     text-align: center;
     padding-top: 50px;
