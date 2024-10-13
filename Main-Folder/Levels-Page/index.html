@@ -4,16 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Levels Page</title>
+
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500&display=swap');
+    </style>
+    <script src="../audio.js" defer></script>
+    <script src="../theme.js" defer></script>
 </head>
 <body>
-    <button>Return</button>
-    <div class="Levels">
-        <h2>Tracing</h2>
-        <h2>Coloring</h2>
-        <h2>Dragging</h2>
+
+    <h2 id="Levels-title">Levels</h2>
+
+    <div class="Levels-div">
+
+        <div class="tracing">
+            <h2 class="Levels-name-style">Tracing</h2>
+
+            <button id="level-one-tracing" class="btn-style" onclick="window.location.href='../Game-two-Finger-Trace/index.html';">1</button>
+
+            <button id="level-two-tracing" class="btn-style" onclick="window.location.href='../sorryPage.html';">2</button>
+
+            <button id="level-three-tracing" class="btn-style" onclick="window.location.href='../sorryPage.html';">3</button>
+        </div>
+
+        <div class="pinching">
+            <h2 class="Levels-name-style">Pinching</h2>
+
+            <button id="level-one-coloring" class="btn-style" onclick="window.location.href='../Game-three-Pinch-Fingers/index.html';">1</button>
+
+            <button id="level-two-coloring" class="btn-style" onclick="window.location.href='../sorryPage.html';">2</button>
+
+            <button id="level-three-coloring" class="btn-style" onclick="window.location.href='../sorryPage.html';">3</button>
+        </div>
+
+        <div class="coloring">
+            <h2 class="Levels-name-style">Coloring</h2>
+
+            <button id="level-one-pinching" class="btn-style"  onclick="window.location.href='../Game-one-Color-Letters/index.html';">1</button>
+
+            <button id="level-two-pinching" class="btn-style" onclick="window.location.href='../sorryPage.html';">2</button>
+
+            <button id="level-three-pinching" class="btn-style" onclick="window.location.href='../sorryPage.html';">3</button>
+        </div>
+
+        <div class="dragging">
+            <h2 class="Levels-name-style">Dragging</h2>
+
+            <button id="level-one-dragging" class="btn-style" onclick="window.location.href='../Game-four-Dragging-Blocks/index.html';">1</button>
+
+            <button id="level-two-dragging" class="btn-style" onclick="window.location.href='../sorryPage.html';">2</button>
+
+            <button id="level-three-dragging" class="btn-style" onclick="window.location.href='../sorryPage.html';">3</button>
+        </div>
     </div>
+
+    <button onclick="window.location.href='../index.html';" id="Levels-Page-Back-btn">Back</button>
+
+  
     
-    
-    
+    <script src="script.js" async></script>
 </body>
 </html>
+

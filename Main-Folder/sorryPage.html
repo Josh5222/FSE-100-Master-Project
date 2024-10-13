@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorry!</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500&display=swap');
+
+        body{
+            font-family: "Poppins", "sans-serif";
+            font-weight: 400;
+            font-style: normal;
+            background: linear-gradient(to right, #242526, #878788);  
+        }
+        body.light-mode{
+            background: linear-gradient(to right, #ffffff, #908e8e);
+       }
+
+        h2{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 50px;
+
+        }
+
+        button:hover{
+            background-color: #c1c1c1;
+            transform: scale(1.1);
+            box-shadow: 0px, 10px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0px 4px 15px rgba(0, 0,0, 0.5);
+        }
+        button{
+            height: 60px;
+            width: 100px;
+            font-size: 15px;
+            text-align: center;
+            font-family: "Poppins", "sans-serif";
+            font-size: 400;
+            font-style: normal;
+            border-radius: 10px;
+            border: none;
+            margin: 50px;
+            cursor: pointer;
+            transition: 0.3s ease; 
+        }
+        p{  
+            text-align: center;
+            margin: 0 auto;
+            max-width: 500px;
+            word-wrap: break-word;
+            line-height: 1.6;
+        }
+
+        .btn-container{
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+        <script src="theme.js" defer></script>
+        <script src="audio.js" defer></script>
+</head>
+<body>
+
+    <h2>We're Sorry!</h2>
+
+    <p>Unfortunately, our team is still in the process of developing this level. Please stay tuned for future updates as we continue to enhance your gaming experience.</p>
+    <br>
+    <p>Thank you for your understanding and patience!</p>
+    
+    <div class="btn-container">
+
+        <button id="btn" onclick="window.location.href='Levels-Page/index.html';">Back To Levels</button>
+
+        <button id="btn" onclick="window.location.href='index.html';">Back To Home</button>
+    </div>
+</body>
+</html>

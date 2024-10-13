@@ -14,12 +14,14 @@ h2{
     justify-content: center;
     align-items: center;
     padding-top: 50px;
+
 }
 
 button:hover{
     background-color: #c1c1c1;
     transform: scale(1.1);
     box-shadow: 0px, 10px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 4px 15px rgba(0, 0,0, 0.5);
 }
 button{
     height: 40px;
@@ -33,7 +35,16 @@ button{
     border: none;
     margin: 50px;
     cursor: pointer;
-    transition: 0.3s ease;
+    transition: 0.3s ease; 
+}
+#Settings-Back-btn{
+    display: block;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 48%;
+    transform: translateX(-50%);
+    bottom: 20px;
 }
 .settings-gui{
     display: flex;
@@ -41,6 +52,7 @@ button{
     align-items: center;
     height: 30vh;
     gap: 150px;
+    margin-right: 50px;
 }
 
 .audio-settings-gui{
