@@ -35,7 +35,9 @@ button:hover{
     box-shadow: 0px, 10px 20px rgba(0, 0, 0, 0.3);
     box-shadow: 0px 4px 15px rgba(0, 0,0, 0.5);
 }
+
 .btn-style{
+    display: block;
     height: 100px;
     width: 100px;
     font-size: 15px;
@@ -63,7 +65,7 @@ button:hover{
     justify-content: center;
     align-items: center;
     padding: 10px;
-    margin-left: 150px;
+    margin-left: 15px;
 }
 .Levels-name-style{
     margin-left: 50px;
