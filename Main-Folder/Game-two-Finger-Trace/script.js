@@ -1,72 +1,98 @@
-const startgame = document.getElementById('Finger-Trace-Start');
-const canvas = document.getElementById('tracingCanvas');
-const score = document.getElementById('score');
-const ctx = canvas.getContext('2d');
+const Start_Button = document.getElementById("Finger-Trace-Start");
+const End_Button = document.getElementById("End-Game");
+const Header = document.getElementById("Header");
+const Info = document.getElementById("Info");
+const Accuracy_Display = document.getElementById("Accuracy");
+const Past_Accuracies_Display = document.getElementById("Past-Accuracies"); // Element to show past accuracies
+const gameContainer = document.getElementById("game-container");
+const canvas = document.getElementById("tracingCanvas");
+const ctx = canvas.getContext("2d");
 
-let drawing = false;
-let accuracy = 0;
-let traceDistance = 0;
-let totalDistance = 0; 
-let letterPath = [];
+let isDrawing = false;
+let totalStrokes = 0;
+let accurateStrokes = 0;
+let pastAccuracies = []; // Array to store past accuracies
 
-function DrawLetterA() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height); 
-    ctx.beginPath(); 
-    ctx.moveTo(250, 50); 
-    ctx.lineTo(200, 450);
-    ctx.lineTo(300, 450);
-    ctx.closePath();
-    ctx.stroke(); 
+// Define the letter path (using a simple "A" shape as an example)
+const letterPath = new Path2D("M 150 300 L 200 100 L 250 300 Z");
 
-    letterPath = [{ x: 250, y: 50 }, { x: 200, y: 450 }, { x: 300, y: 450 }];
+function drawLetter() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.strokeStyle = "#00FF00"; // Green color for the letter
+    ctx.lineWidth = 5;
+    ctx.stroke(letterPath);
+}
 
-    totalDistance = 0;
+// Update accuracy display
+function updateAccuracy() {
+    const accuracy = totalStrokes ? Math.round((accurateStrokes / totalStrokes) * 100) : 0;
+    Accuracy_Display.textContent = `Accuracy: ${accuracy}%`;
+}
+
+// Start tracing interaction
+function startTracing(e) {
+    if (ctx.isPointInPath(letterPath, e.offsetX, e.offsetY)) {
+        isDrawing = true;
+        ctx.strokeStyle = "#FF0000"; // Red for active tracing
+    }
+}
+
+// Tracing effect
+function traceLetter(e) {
+    if (!isDrawing) return;
     
-}
+    totalStrokes++;
 
-// Mouse event listeners
-canvas.addEventListener('mousedown', function () {
-    drawing = true;
-    traceDistance = 0;
-    totalDistance = 0;
+    // Check if the tracing point is within the letter path
+    if (ctx.isPointInPath(letterPath, e.offsetX, e.offsetY)) {
+        accurateStrokes++;
+    }
+    
+    // Draw a small dot for each tracing stroke
     ctx.beginPath();
-});
+    ctx.arc(e.offsetX, e.offsetY, 5, 0, 2 * Math.PI);
+    ctx.fill();
 
-canvas.addEventListener('mousemove', function (event) { 
-    if (!drawing) return;
-
-    const rect = canvas.getBoundingClientRect();
-    const mouseX = event.clientX - rect.left;
-    const mouseY = event.clientY - rect.top;
-
-    ctx.lineTo(mouseX, mouseY);
-    ctx.stroke();
-
-    const lastPoint = letterPath[letterPath.length - 1];
-    const distance = Math.sqrt(Math.pow(mouseX - lastPoint.x, 2) + Math.pow(mouseY - lastPoint.y, 2));
-    traceDistance += distance;
-    totalDistance += distance;
-});
-
-canvas.addEventListener('mouseup', function () {
-    drawing = false;
-
-    accuracy = calculateAccuracy(traceDistance, totalDistance);
-    displayScore(accuracy);
-});
-
-// Accuracy calculation
-function calculateAccuracy(traced, total) {
-    return ((traced / total) * 100).toFixed(2);
+    // Update accuracy after each stroke
+    updateAccuracy();
 }
 
-// Score display
-function displayScore(scoreValue) {
-    score.innerText = `Your Score: ${scoreValue}%`; 
+// End tracing
+function stopTracing() {
+    isDrawing = false;
 }
 
-// Start game button click event
-startgame.addEventListener('click', function () {
+// Event listeners for canvas actions
+canvas.addEventListener("mousedown", startTracing);
+canvas.addEventListener("mousemove", traceLetter);
+canvas.addEventListener("mouseup", stopTracing);
+canvas.addEventListener("mouseout", stopTracing);
 
-    DrawLetterA();
+// Show game and start drawing when 'Start Game' is clicked
+Start_Button.addEventListener("click", function() {
+    Start_Button.style.display = 'none';
+    Header.innerHTML = '';
+    Info.innerHTML = '';
+    Accuracy_Display.textContent = 'Accuracy: 0%';
+    totalStrokes = 0;
+    accurateStrokes = 0;
+    gameContainer.style.display = 'flex';  // Show the canvas
+    drawLetter(); // Draw the initial letter for tracing
+});
+
+// Hide game and store accuracy when 'End Game' is clicked
+End_Button.addEventListener("click", function() {
+    const finalAccuracy = totalStrokes ? Math.round((accurateStrokes / totalStrokes) * 100) : 0;
+    pastAccuracies.push(finalAccuracy); // Store the final accuracy
+
+    // Update the past accuracies display
+    Past_Accuracies_Display.textContent = `Past Accuracies: ${pastAccuracies.join(", ")}%`;
+
+    // Reset and hide canvas
+    gameContainer.style.display = 'none';
+    Start_Button.style.display = 'inline';
+    Header.innerHTML = 'Finger Trace';
+    Info.innerHTML = 'Follow the Green Letter on your screen with your mouse.';
+    ctx.clearRect(0, 0, canvas.width, canvas.height);  // Clear canvas
+    Accuracy_Display.textContent = 'Accuracy: 0%';
 });
