@@ -14,18 +14,39 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Hamburger Menu Icon (Top Left) -->
+    <div class="hamburger" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
 
-    <h2 id="Header">Finger Trace</h2>
-    <p id="Info">Follow the Green Letter on your screen with your mouse.</p>
-    <p id="Accuracy">Accuracy: 0%</p>
-    <button id="Finger-Trace-Start">Start Game</button>
-    <button id="End-Game">End Game</button>
+    <h2 id="Header">Finger Trace</h2> 
 
-    <!-- Canvas element for tracing game -->
+    <div class="main">
+        <p id="Info">Follow the Green Letter on your screen with your mouse.</p>
+    </div>
+
+    <div class="info">
+        <p id="Accuracy">Accuracy: 0%</p>
+        <p id="Past-Accuracies">Past Accuracies: None</p>
+    </div>
+
     <div id="game-container" style="display: none;">
         <canvas id="tracingCanvas" width="400" height="400"></canvas>
     </div>
-    <p id="Past-Accuracies">Past Accuracies: None</p>
+
+    <!-- Centered Game Start and End Buttons -->
+    <div class="game-start">
+        <button id="Finger-Trace-Start">Start Game</button>
+        <button id="End-Game">End Game</button>
+    </div>
+
+    <!-- Menu with Home and Levels Buttons -->
+    <div id="menu" class="menu">
+        <button onclick="window.location.href='../index.html'">Home</button>
+        <button onclick="window.location.href='../Levels-Page/index.html'">Levels</button>
+    </div>
 
     <script src="script.js"></script>
 </body>

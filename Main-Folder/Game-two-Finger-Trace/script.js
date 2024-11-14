@@ -96,3 +96,10 @@ End_Button.addEventListener("click", function() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);  // Clear canvas
     Accuracy_Display.textContent = 'Accuracy: 0%';
 });
+
+function toggleMenu() {
+    const menu = document.getElementById("menu");
+    const hamburger = document.querySelector(".hamburger");
+    menu.classList.toggle("show");
+    hamburger.classList.toggle("active");
+}
