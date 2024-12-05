@@ -4,8 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dragging Game</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500&display=swap');
+    </style>
+    <script src="../theme.js" defer></script>
+    <script src="../audio.js" defer></script>
+
+    <script src="script.js" defer></script>
 </head>
 <body>
+
+    <div class="hamburger" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+
+    <div id="start-screen">
+        <button id="start-game-btn">Start Game</button>
+    </div>
+
+    <canvas id="game-canvas" class="hidden" width="800" height="600"></canvas>
+
+    <div id="end-screen" class="hidden">
+        <h2>Game Over</h2>
+        <p>Your Score: <span id="final-score"></span></p>
+        <button id="restart-game-btn">Play Again</button>
+    </div>
+
+    <div id="menu" class="menu">
+        <button onclick="window.location.href='../index.html'">Home</button>
+        <button onclick="window.location.href='../Levels-Page/index.html'">Levels</button>
+    </div>
     
 </body>
 </html>

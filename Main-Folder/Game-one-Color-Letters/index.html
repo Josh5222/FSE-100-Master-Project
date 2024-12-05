@@ -4,8 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coloring Letters</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500&display=swap');
+    </style>
+    <script src="script.js" defer></script>
+    <script src="../theme.js" defer></script>
+    <script src="../audio.js" defer></script>
+
 </head>
 <body>
-    
+    <div class="hamburger" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+
+    <h1 id="gradient-header">Color the Letters</h1>
+
+    <div id="start-screen">
+        <button id="start-game-btn">Start Coloring</button>
+    </div>
+
+    <canvas id="coloring-canvas" class="hidden" width="800" height="600"></canvas>
+
+    <div id="end-screen" class="hidden">
+        <h2>Game Over</h2>
+        <p>Great job coloring the letters!</p>
+        <button id="restart-game-btn">Play Again</button>
+    </div>
+
+    <div id="menu" class="menu">
+        <button onclick="window.location.href='../index.html'">Home</button>
+        <button onclick="window.location.href='../Levels-Page/index.html'">Levels</button>
+    </div>
+
 </body>
 </html>
